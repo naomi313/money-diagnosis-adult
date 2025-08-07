@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お金の価値観診断</title>
+  <style>
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      background-color: #e0f2f1;
+      margin: 0;
+      padding: 10px;
+      color: #004d40;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #00796b;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 6vw;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+      font-size: 4.5vw;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 4vw;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      background-color: #009688;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 5vw;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #00796b;
+    }
+    .result {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 4.5vw;
+      white-space: pre-wrap;
+    }
+    .advice {
+      margin-top: 15px;
+      font-size: 4vw;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .print-button {
+      margin-top: 20px;
+      background-color: #4db6ac;
+      color: white;
+      padding: 10px;
+      font-size: 4vw;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+      .question h3 {
+        font-size: 20px;
+      }
+      label {
+        font-size: 16px;
+      }
+      button {
+        font-size: 18px;
+      }
+      .result {
+        font-size: 18px;
+      }
+      .advice {
+        font-size: 16px;
+      }
+      .print-button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>お金の価値観診断</h1>
+    <form id="quizForm">
+      <div class="question">
+        <h3>Q1. お金が入ってきたらまず何をしたい？</h3>
+        <label><input type="radio" name="q1" value="守り姫">とりあえず貯金する</label>
+        <label><input type="radio" name="q1" value="我慢の達人">誰かのために使いたい</label>
+        <label><input type="radio" name="q1" value="損したくない">使い道をじっくり考える</label>
+        <label><input type="radio" name="q1" value="ついポチッと">欲しかったものをすぐ買う</label>
+        <label><input type="radio" name="q1" value="夢見る慎重派">夢の実現に向けて準備する</label>
+        <label><input type="radio" name="q1" value="感謝体質">ありがとうの気持ちで循環させたい</label>
+      </div>
+      <div class="question">
+        <h3>Q2. セールで欲しいものを見つけたときの気持ちは？</h3>
+        <label><input type="radio" name="q2" value="損したくない">本当にお得か比較する</label>
+        <label><input type="radio" name="q2" value="ついポチッと">すぐに買いたくなる</label>
+        <label><input type="radio" name="q2" value="守り姫">それでも買うのを迷う</label>
+        <label><input type="radio" name="q2" value="夢見る慎重派">夢の実現に必要か考える</label>
+        <label><input type="radio" name="q2" value="我慢の達人">自分より誰かが使うなら…と思う</label>
+        <label><input type="radio" name="q2" value="感謝体質">お金がめぐるならOK</label>
+      </div>
+      <div class="question">
+        <h3>Q3. お金を使った後、どんな気持ちになりやすい？</h3>
+        <label><input type="radio" name="q3" value="守り姫">ちゃんと管理できたか不安になる</label>
+        <label><input type="radio" name="q3" value="我慢の達人">自分のために使うことに罪悪感</label>
+        <label><input type="radio" name="q3" value="損したくない">もっと安い方法があったかもと考える</label>
+        <label><input type="radio" name="q3" value="ついポチッと">後悔することがある</label>
+        <label><input type="radio" name="q3" value="夢見る慎重派">これで夢に近づけたかなと思う</label>
+        <label><input type="radio" name="q3" value="感謝体質">ありがたくお金が巡ってくれたと感じる</label>
+      </div>
+
+      <div class="question">
+        <h3>Q4. 「お金＝◯◯」だとしたら、何が一番近い？</h3>
+        <label><input type="radio" name="q4" value="守り姫">安心</label>
+        <label><input type="radio" name="q4" value="我慢の達人">他人のための手段</label>
+        <label><input type="radio" name="q4" value="損したくない">損得のバロメーター</label>
+        <label><input type="radio" name="q4" value="ついポチッと">自分へのご褒美</label>
+        <label><input type="radio" name="q4" value="夢見る慎重派">夢のチケット</label>
+        <label><input type="radio" name="q4" value="感謝体質">愛と感謝の循環</label>
+      </div>
+
+      <div class="question">
+        <h3>Q5. お金の使い方で一番不安を感じるのは？</h3>
+        <label><input type="radio" name="q5" value="守り姫">減っていくこと</label>
+        <label><input type="radio" name="q5" value="我慢の達人">自分のために使うこと</label>
+        <label><input type="radio" name="q5" value="損したくない">損をすること</label>
+        <label><input type="radio" name="q5" value="ついポチッと">使いすぎてしまうこと</label>
+        <label><input type="radio" name="q5" value="夢見る慎重派">実現できないかもしれないこと</label>
+        <label><input type="radio" name="q5" value="感謝体質">管理できていないこと</label>
+      </div>
+
+      <div class="question">
+        <h3>Q6. あなたの「理想の未来」は？</h3>
+        <label><input type="radio" name="q6" value="守り姫">安心して暮らせること</label>
+        <label><input type="radio" name="q6" value="我慢の達人">大切な人たちを支えられること</label>
+        <label><input type="radio" name="q6" value="損したくない">後悔なく選択できること</label>
+        <label><input type="radio" name="q6" value="ついポチッと">楽しく満たされた毎日</label>
+        <label><input type="radio" name="q6" value="夢見る慎重派">夢を叶えて生きていること</label>
+        <label><input type="radio" name="q6" value="感謝体質">人と豊かさを分かち合うこと</label>
+      </div>
+
+      <div class="question">
+        <h3>Q7. お金との関係で理想だと思う状態は？</h3>
+        <label><input type="radio" name="q7" value="守り姫">しっかり守れている状態</label>
+        <label><input type="radio" name="q7" value="我慢の達人">誰かの役に立っている状態</label>
+        <label><input type="radio" name="q7" value="損したくない">無駄がない状態</label>
+        <label><input type="radio" name="q7" value="ついポチッと">自分に素直に使える状態</label>
+        <label><input type="radio" name="q7" value="夢見る慎重派">夢のために動けている状態</label>
+        <label><input type="radio" name="q7" value="感謝体質">感謝と喜びで循環している状態</label>
+      </div>
+
+      <div class="question">
+        <h3>Q8. お金に関して、今のあなたが一番変えたいことは？</h3>
+        <label><input type="radio" name="q8" value="守り姫">不安で使えないクセ</label>
+        <label><input type="radio" name="q8" value="我慢の達人">我慢しすぎる自分</label>
+        <label><input type="radio" name="q8" value="損したくない">迷って決められない癖</label>
+        <label><input type="radio" name="q8" value="ついポチッと">つい買ってしまう習慣</label>
+        <label><input type="radio" name="q8" value="夢見る慎重派">思い描くだけで終わること</label>
+        <label><input type="radio" name="q8" value="感謝体質">感謝だけでなく管理もしたい</label>
+      </div>
+      <button type="submit">診断する</button>
+    </form>
+    <div class="result" id="result"></div>
+    <div class="advice" id="advice"></div>
+    <button class="print-button" onclick="window.print()" style="display:none;">結果を保存・印刷する</button>
+  </div>
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const counts = {};
+      for (let i = 1; i <= 8; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (answer) {
+          counts[answer.value] = (counts[answer.value] || 0) + 1;
+        }
+      }
+      let maxType = null;
+      let maxScore = 0;
+      for (const type in counts) {
+        if (counts[type] > maxScore) {
+          maxScore = counts[type];
+          maxType = type;
+        }
+      }
+      const resultTexts = {
+        "守り姫": `あなたは『守り姫タイプ』です。
+
+基本的なお金への価値観：
+お金は減らしてはいけないもの。守るべきもの。
+
+行動の特徴：
+節約や貯金を優先し、必要以上に我慢しがち。
+
+その背景にある思考や心のクセ：
+「使ったらなくなる」「貯めていれば安心」という思い込み。
+
+強み：
+計画性があり堅実。
+
+抱えやすい悩みやつまずき：
+楽しみや学びにお金を使えない。投資が怖い。
+
+今すぐできる具体的アドバイス：
+『使ってもいい予算』を決めて、自分の喜びに使ってみよう。
+
+よくある口癖：「お金が減るのが怖い」「もっと貯めなきゃ」
+理想の使い方：安心や安全のために計画的に使う`,
+
+        "我慢の達人": `あなたは『我慢の達人タイプ』です。
+
+基本的なお金への価値観：
+自分よりも他人のために使うもの。
+
+行動の特徴：
+つい人のためにお金を使い、自分は後回し。
+
+その背景にある思考や心のクセ：
+「私は我慢するのが当然」「私なんてまだまだ」
+
+強み：
+他人への思いやりが深い。
+
+抱えやすい悩みやつまずき：
+自己犠牲で満たされず、満足感が得られない。
+
+今すぐできる具体的アドバイス：
+週1で“自分のためだけ”に使うプチ贅沢デーを作ろう。
+
+よくある口癖：「私なんて」「○○さんが困ってたから」
+理想の使い方：自分と他人のバランスをとる支出`,
+
+        "損したくない": `あなたは『損したくないタイプ』です。
+
+基本的なお金への価値観：
+絶対に損したくない。得を重視。
+
+行動の特徴：
+比較検討が多く、買うまでに時間がかかる。
+
+その背景にある思考や心のクセ：
+「もっと安く買えたかも」「損したらどうしよう」
+
+強み：
+調査力・分析力がある。
+
+抱えやすい悩みやつまずき：
+決断疲れ・時間のロス。
+
+今すぐできる具体的アドバイス：
+「得より納得」を基準にして、迷う時間を減らしてみよう。
+
+よくある口癖：「もっと安く」「比較してから」
+理想の使い方：納得して満足できる支出`,
+
+        "ついポチッと": `あなたは『ついポチッとタイプ』です。
+
+基本的なお金への価値観：
+その場の欲求をすぐ満たしたい。
+
+行動の特徴：
+感情に左右されて買ってしまう。
+
+その背景にある思考や心のクセ：
+「欲しいから買う」「自分を満たすにはこれが必要」
+
+強み：
+行動力・瞬発力がある。
+
+抱えやすい悩みやつまずき：
+後悔・反省を繰り返す。
+
+今すぐできる具体的アドバイス：
+欲しいと感じたら“24時間ルール”を設けてみよう。
+
+よくある口癖：「また買っちゃった」「気づいたらポチってた」
+理想の使い方：自分を満たす意味ある支出`,
+
+        "夢見る慎重派": `あなたは『夢見る慎重派タイプ』です。
+
+基本的なお金への価値観：
+お金は夢の実現に使いたいけど不安もある。
+
+行動の特徴：
+理想はあるけど行動が伴わない。
+
+その背景にある思考や心のクセ：
+「まだ早いかも」「準備が整ってから」
+
+強み：
+ビジョンを描く力がある。
+
+抱えやすい悩みやつまずき：
+夢と現実のギャップに悩む。
+
+今すぐできる具体的アドバイス：
+一歩目を超具体的に。まずは1000円以内で叶う夢を行動に！
+
+よくある口癖：「やりたいけど」「今じゃないかも」
+理想の使い方：未来への投資や体験への支出`,
+
+        "感謝体質": `あなたは『感謝体質タイプ』です。
+
+基本的なお金への価値観：
+お金はエネルギー。循環するもの。
+
+行動の特徴：
+感謝しながら気持ちよく使う。
+
+その背景にある思考や心のクセ：
+「ありがたいな」「巡り巡って戻ってくる」
+
+強み：
+精神的な豊かさ、満足感を得やすい。
+
+抱えやすい悩みやつまずき：
+貯める意識が薄く、管理がゆるくなることも。
+
+今すぐできる具体的アドバイス：
+“ありがとう貯金”を始めて、感謝と管理のバランスを取ろう。
+
+よくある口癖：「ありがたい」「お金も仲間」
+理想の使い方：感謝をこめた心地よい支出`
+      };
+      document.getElementById("result").textContent = resultTexts[maxType] || "すべての質問に答えてください。";
+      document.getElementById("advice").textContent = "";
+      if (maxType) {
+        document.querySelector(".print-button").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
